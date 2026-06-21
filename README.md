@@ -102,8 +102,8 @@ bash my_scripts/robocasa_cka.sh
 
 | Model | Description | 🤗 Download Link |
 |-------|-------------|------------------|
-| `<checkpoint_name>` | CLP-pruned, LIBERO | [Link](<hf_url>) |
-| `<checkpoint_name>` | Base (no pruning), LIBERO | [Link](<hf_url>) |
+| `<checkpoint_name>` | CLP-pruned, LIBERO | [Coming soon](<hf_url>) |
+| `<checkpoint_name>` | Base (no pruning), LIBERO | [Coming soon](<hf_url>) |
 
 ```bash
 bash evaluation/libero.sh
@@ -113,8 +113,8 @@ bash evaluation/libero.sh
 
 | Model | Description | 🤗 Download Link |
 |-------|-------------|------------------|
-| `<checkpoint_name>` | CLP-pruned, SimplerEnv | [Link](<hf_url>) |
-| `<checkpoint_name>` | Base (no pruning), SimplerEnv | [Link](<hf_url>) |
+| `<checkpoint_name>` | CLP-pruned, SimplerEnv | [Coming soon](<hf_url>) |
+| `<checkpoint_name>` | Base (no pruning), SimplerEnv | [Coming soon](<hf_url>) |
 
 <Add SimplerEnv setup + evaluation command here.>
 
@@ -122,8 +122,8 @@ bash evaluation/libero.sh
 
 | Model | Description | 🤗 Download Link |
 |-------|-------------|------------------|
-| `<checkpoint_name>` | CLP-pruned, RoboCasa | [Link](<hf_url>) |
-| `<checkpoint_name>` | Base (no pruning), RoboCasa | [Link](<hf_url>) |
+| `<checkpoint_name>` | CLP-pruned, RoboCasa | [Coming soon](<hf_url>) |
+| `<checkpoint_name>` | Base (no pruning), RoboCasa | [Coming soon](<hf_url>) |
 
 ```bash
 bash evaluation/robocasa0.sh
