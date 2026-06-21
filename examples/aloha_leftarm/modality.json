@@ -1,0 +1,89 @@
+{
+    "state": {
+        "waist": {
+            "start": 0,
+            "end": 1,
+            "original_key": "observation.state"
+        },
+        "shoulder": {
+            "start": 1,
+            "end": 2,
+            "original_key": "observation.state"
+        },
+        "elbow": {
+            "start": 2,
+            "end": 3,
+            "original_key": "observation.state"
+        },
+        "forearm_roll": {
+            "start": 3,
+            "end": 4,
+            "original_key": "observation.state"
+        },
+        "wrist_angle": {
+            "start": 4,
+            "end": 5,
+            "original_key": "observation.state"
+        },
+        "wrist_rotate": {
+            "start": 5,
+            "end": 6,
+            "original_key": "observation.state"
+        },
+        "gripper": {
+            "start": 6,
+            "end": 7,
+            "original_key": "observation.state"
+        }
+    },
+    "action": {
+        "waist": {
+            "start": 0,
+            "end": 1,
+            "original_key": "action"
+        },
+        "shoulder": {
+            "start": 1,
+            "end": 2,
+            "original_key": "action"
+        },
+        "elbow": {
+            "start": 2,
+            "end": 3,
+            "original_key": "action"
+        },
+        "forearm_roll": {
+            "start": 3,
+            "end": 4,
+            "original_key": "action"
+        },
+        "wrist_angle": {
+            "start": 4,
+            "end": 5,
+            "original_key": "action"
+        },
+        "wrist_rotate": {
+            "start": 5,
+            "end": 6,
+            "original_key": "action"
+        },
+        "gripper": {
+            "start": 6,
+            "end": 7,
+            "original_key": "action"
+        }
+    },
+    "video": {
+        "high_image": {
+            "original_key": "observation.images.color.high"
+        },
+        "wrist_left_image": {
+            "original_key": "observation.images.color.wrist_left"
+        }
+    },
+    "annotation": {
+        "human.action.task_description": {
+            "original_key": "task_index"
+        }
+    }
+}

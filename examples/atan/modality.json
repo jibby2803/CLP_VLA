@@ -1,0 +1,265 @@
+{
+    "state": {
+        "left_hip": {
+            "start": 0,
+            "end": 3
+        },
+        "left_knee": {
+            "start": 3,
+            "end": 4
+        },
+        "left_ankle": {
+            "start": 4,
+            "end": 6
+        },
+        "right_hip": {
+            "start": 6,
+            "end": 9
+        },
+        "right_knee": {
+            "start": 9,
+            "end": 10
+        },
+        "right_ankle": {
+            "start": 10,
+            "end": 12
+        },
+        "waist": {
+            "start": 12,
+            "end": 14
+        },
+        "left_shoulder": {
+            "start": 14,
+            "end": 17
+        },
+        "left_elbow": {
+            "start": 17,
+            "end": 18
+        },
+        "left_wrist": {
+            "start": 18,
+            "end": 21
+        },
+        "right_shoulder": {
+            "start": 21,
+            "end": 24
+        },
+        "right_elbow": {
+            "start": 24,
+            "end": 25
+        },
+        "right_wrist": {
+            "start": 25,
+            "end": 28
+        },
+        "head": {
+            "start": 28,
+            "end": 30
+        },
+        "left_hand": {
+            "start": 30,
+            "end": 36
+        },
+        "right_hand": {
+            "start": 36,
+            "end": 42
+        },
+        "gripper_open": {
+            "start": 42,
+            "end": 43
+        },
+        "velocity_left_hip": {
+            "start": 43,
+            "end": 46
+        },
+        "velocity_left_knee": {
+            "start": 46,
+            "end": 47
+        },
+        "velocity_left_ankle": {
+            "start": 47,
+            "end": 49
+        },
+        "velocity_right_hip": {
+            "start": 49,
+            "end": 52
+        },
+        "velocity_right_knee": {
+            "start": 52,
+            "end": 53
+        },
+        "velocity_right_ankle": {
+            "start": 53,
+            "end": 55
+        },
+        "velocity_waist": {
+            "start": 55,
+            "end": 57
+        },
+        "velocity_left_shoulder": {
+            "start": 57,
+            "end": 60
+        },
+        "velocity_left_elbow": {
+            "start": 60,
+            "end": 61
+        },
+        "velocity_left_wrist": {
+            "start": 61,
+            "end": 64
+        },
+        "velocity_right_shoulder": {
+            "start": 64,
+            "end": 67
+        },
+        "velocity_right_elbow": {
+            "start": 67,
+            "end": 68
+        },
+        "velocity_right_wrist": {
+            "start": 68,
+            "end": 71
+        },
+        "velocity_head": {
+            "start": 71,
+            "end": 73
+        },
+        "velocity_left_hand": {
+            "start": 73,
+            "end": 79
+        },
+        "velocity_right_hand": {
+            "start": 79,
+            "end": 85
+        },
+        "velocity_gripper_open": {
+            "start": 85,
+            "end": 86
+        },
+        "effort_left_hip": {
+            "start": 86,
+            "end": 89
+        },
+        "effort_left_knee": {
+            "start": 89,
+            "end": 90
+        },
+        "effort_left_ankle": {
+            "start": 90,
+            "end": 92
+        },
+        "effort_right_hip": {
+            "start": 92,
+            "end": 95
+        },
+        "effort_right_knee": {
+            "start": 95,
+            "end": 96
+        },
+        "effort_right_ankle": {
+            "start": 96,
+            "end": 98
+        },
+        "effort_waist": {
+            "start": 98,
+            "end": 100
+        },
+        "effort_left_shoulder": {
+            "start": 100,
+            "end": 103
+        },
+        "effort_left_elbow": {
+            "start": 103,
+            "end": 104
+        },
+        "effort_left_wrist": {
+            "start": 104,
+            "end": 107
+        },
+        "effort_right_shoulder": {
+            "start": 107,
+            "end": 110
+        },
+        "effort_right_elbow": {
+            "start": 110,
+            "end": 111
+        },
+        "effort_right_wrist": {
+            "start": 111,
+            "end": 114
+        },
+        "effort_head": {
+            "start": 114,
+            "end": 116
+        },
+        "effort_left_hand": {
+            "start": 116,
+            "end": 122
+        },
+        "effort_right_hand": {
+            "start": 122,
+            "end": 128
+        },
+        "effort_gripper_open": {
+            "start": 128,
+            "end": 129
+        }
+    },
+    "action": {
+        "left_arm": {
+            "start": 0,
+            "end": 7
+        },
+        "right_arm": {
+            "start": 7,
+            "end": 14
+        },
+        "left_hand": {
+            "start": 14,
+            "end": 20
+        },
+        "right_hand": {
+            "start": 20,
+            "end": 26
+        },
+        "gripper_open": {
+            "start": 26,
+            "end": 27
+        }
+    },
+    "video": {
+        "cam_head": {
+            "original_key": "observation.images.color.head"
+        },
+        "cam_head_right": {
+            "original_key": "observation.images.color.head_right"
+        },
+        "cam_left": {
+            "original_key": "observation.images.color.left"
+        },
+        "cam_right": {
+            "original_key": "observation.images.color.right"
+        },
+        "cam_virtual_head": {
+            "original_key": "observation.images.color.virtual_head"
+        },
+        "cam_virtual_view0": {
+            "original_key": "observation.images.color.virtual_view0"
+        },
+        "cam_virtual_view1": {
+            "original_key": "observation.images.color.virtual_view1"
+        },
+        "cam_virtual_view2": {
+            "original_key": "observation.images.color.virtual_view2"
+        },
+        "cam_virtual_view3": {
+            "original_key": "observation.images.color.virtual_view3"
+        }
+    },
+    "annotation": {
+        "human.task_description": {
+            "original_key": "task_index"
+        }
+    }
+}
+ 

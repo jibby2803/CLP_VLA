@@ -1,0 +1,75 @@
+{
+    "state": {
+        "right_waist": {
+            "start": 0,
+            "end": 1
+        },
+        "right_shoulder": {
+            "start": 1,
+            "end": 2
+        },
+        "right_elbow": {
+            "start": 2,
+            "end": 3
+        },
+        "right_forearm_roll": {
+            "start": 3,
+            "end": 4
+        },
+        "right_wrist_angle": {
+            "start": 4,
+            "end": 5
+        },
+        "right_wrist_rotate": {
+            "start": 5,
+            "end": 6
+        },
+        "right_gripper": {
+            "start": 6,
+            "end": 7
+        }
+    },
+    "action": {
+        "right_waist": {
+            "start": 0,
+            "end": 1
+        },
+        "right_shoulder": {
+            "start": 1,
+            "end": 2
+        },
+        "right_elbow": {
+            "start": 2,
+            "end": 3
+        },
+        "right_forearm_roll": {
+            "start": 3,
+            "end": 4
+        },
+        "right_wrist_angle": {
+            "start": 4,
+            "end": 5
+        },
+        "right_wrist_rotate": {
+            "start": 5,
+            "end": 6
+        },
+        "right_gripper": {
+            "start": 6,
+            "end": 7
+        }
+    },
+    "video": {
+        "image": {
+            "original_key": "observation.images.color.high"
+        },
+        "wrist_image": {
+            "original_key": "observation.images.color.wrist_right"
+        }
+    },
+    "annotation": {
+        "human.action.task_description": {
+            "original_key": "task_index"
+        }
+    }
+}

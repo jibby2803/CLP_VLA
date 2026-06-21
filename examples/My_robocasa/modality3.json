@@ -1,0 +1,57 @@
+{
+    "state": {
+        "state":{
+            "original_key": "state"
+        }
+    },
+    "action": {
+        "x": {
+            "start": 0,
+            "end": 1
+        },
+        "y": {
+            "start": 1,
+            "end": 2
+        },
+        "z": {
+            "start": 2,
+            "end": 3
+        },
+        "roll": {
+            "start": 3,
+            "end": 4
+        },
+        "pitch": {
+            "start": 4,
+            "end": 5
+        },
+        "yaw": {
+            "start": 5,
+            "end": 6
+        },
+        "gripper": {
+            "start": 6,
+            "end": 7
+        },
+        "unknown": {
+            "start": 7,
+            "end": 12
+        }
+    },
+    "video": {
+        "left_image": {
+            "original_key": "left_image"
+        },
+        "right_image": {
+            "original_key": "right_image"
+        },
+        "wrist_image": {
+            "original_key": "wrist_image"
+        }
+    },
+    "annotation": {
+        "human.action.task_description": {
+            "original_key": "task_index"
+        }
+    }
+}
