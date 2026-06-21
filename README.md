@@ -91,7 +91,7 @@ jupyter notebook notebook/cka.ipynb
 Once the redundant layers are identified, finetune the pruned backbone:
 
 ```bash
-bash my_scripts/finetune_cka.sh
+bash my_scripts/robocasa_cka.sh
 ```
 
 <Add a short description of what this script does and the key flags it exposes, e.g. which layers to drop, batch size, max steps, output dir.>
