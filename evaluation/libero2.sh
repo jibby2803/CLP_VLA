@@ -14,4 +14,5 @@ python evaluation/eval_libero.py \
   --args.model_type=gr00tn15 \
   --args.num_trials_per_task=50 \
   --args.exp_name=$EXP_NAME \
+  --args.load_pruned_model=True \
   --args.pretrained_model_path=$POLICY_PATH

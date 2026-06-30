@@ -196,3 +196,5 @@ attn/
 eval_results/
 robocasa_eval_logs/
 eval_out/
+script_cache*
+old*

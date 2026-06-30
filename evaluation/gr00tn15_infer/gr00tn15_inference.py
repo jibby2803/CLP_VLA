@@ -19,10 +19,11 @@ from gr00t.data.schema import EmbodimentTag
 LIBERO_DUMMY_ACTION = [0.0] * 6 + [-1.0]
 
 class Gr00tn15_inference():
-    def __init__(self, model_dir="", infer_chunk=10):
+    def __init__(self, model_dir="", infer_chunk=10, load_pruned_model=True):
         self.model_dir = model_dir 
         self.device = 'cuda'
         self.infer_chunk=infer_chunk
+        self.load_pruned_model = load_pruned_model
         self.policy = self.create_policy()
         self.action_keys = ["x", "y", "z", "roll", "pitch", "yaw", "gripper"]
 
@@ -39,6 +40,7 @@ class Gr00tn15_inference():
                 modality_transform=data_config.transform(),
                 denoising_steps=10, # 8
                 device="cuda",
+                load_pruned_model=self.load_pruned_model,
             )
             
             print("Number of parameters: ", sum(p.numel() for p in policy.model.parameters()))

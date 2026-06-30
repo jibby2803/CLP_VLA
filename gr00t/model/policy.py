@@ -70,6 +70,7 @@ class Gr00tPolicy(BasePolicy):
         modality_transform: ComposedModalityTransform,
         denoising_steps: Optional[int] = None,
         device: Union[int, str] = "cuda" if torch.cuda.is_available() else "cpu",
+        load_pruned_model: bool = True,
     ):
         """
         Initialize the Gr00tPolicy.
@@ -82,6 +83,9 @@ class Gr00tPolicy(BasePolicy):
             denoising_steps: Number of denoising steps to use for the action head.
             device (Union[int, str]): Device to run the model on.
         """
+        
+        self.load_pruned_model = load_pruned_model
+        
         try:
             # NOTE(YL) this returns the local path to the model which is normally
             # saved in ~/.cache/huggingface/hub/
@@ -237,11 +241,18 @@ class Gr00tPolicy(BasePolicy):
         return True
 
     def _load_model(self, model_path):
-        model = GR00T_N1_5.from_pretrained(model_path, torch_dtype=COMPUTE_DTYPE) #, pruned=True)
+        # model = GR00T_N1_5.from_pretrained(model_path, torch_dtype=COMPUTE_DTYPE) #, pruned=True)
         
-        print("Number of parameters BEFORE pruning: ", sum(p.numel() for p in model.parameters()))
-        # model.prun_layers()
-        print("Number of parameters AFTER pruning: ", sum(p.numel() for p in model.parameters()))
+        # print("Number of parameters BEFORE pruning: ", sum(p.numel() for p in model.parameters()))
+        # # model.prun_layers()
+        # print("Number of parameters AFTER pruning: ", sum(p.numel() for p in model.parameters()))
+        
+        model = GR00T_N1_5.from_pretrained(
+            model_path, torch_dtype=COMPUTE_DTYPE, pruned=self.load_pruned_model
+        )
+
+        print("Number of parameters: ", sum(p.numel() for p in model.parameters()))
+
         
         model.eval()  # Set model to eval mode
         

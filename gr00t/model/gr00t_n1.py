@@ -71,7 +71,7 @@ class GR00T_N1_5(PreTrainedModel):
         self,
         config: GR00T_N1_5_Config,
         local_model_path: str,
-        pruned: bool = True,
+        pruned: bool = False,
     ):
         assert isinstance(config.backbone_cfg, dict)
         assert isinstance(config.action_head_cfg, dict)
@@ -87,9 +87,9 @@ class GR00T_N1_5(PreTrainedModel):
         self.action_dim = config.action_dim
         self.compute_dtype = config.compute_dtype
         
-        # if pruned:
-        #     print("Pruning architecture ...")
-        # self.prun_layers()
+        if pruned:
+            print("Pruning architecture ...")
+            self.prun_layers()
         
     def prun_layers(self):
         self.backbone.prun_layers()
@@ -215,11 +215,22 @@ class GR00T_N1_5(PreTrainedModel):
         tune_projector = kwargs.pop("tune_projector", True)
         tune_diffusion_model = kwargs.pop("tune_diffusion_model", True)
 
+        # Debug-only: dump backbone hidden states to disk. Default OFF.
+        save_hidden_state = kwargs.pop("save_hidden_state", False)
+        save_hidden_state_dir = kwargs.pop("save_hidden_state_dir", "debug_hidden_states")
+        save_hidden_state_max_steps = kwargs.pop("save_hidden_state_max_steps", 1)
+
+
         print(f"Loading pretrained dual brain from {pretrained_model_name_or_path}")
         print(f"Tune backbone vision tower: {tune_visual}")
         print(f"Tune backbone LLM: {tune_llm}")
         print(f"Tune action head projector: {tune_projector}")
         print(f"Tune action head DiT: {tune_diffusion_model}")
+        
+        ##############################
+        print(f"Loading pretrained dual brain from {pretrained_model_name_or_path}")
+        print(f"Load pruned architecture: {pruned}")
+        ##############################
 
         # get the current model path being downloaded
         # try:
@@ -240,13 +251,35 @@ class GR00T_N1_5(PreTrainedModel):
             local_model_path, local_model_path=local_model_path, pruned=pruned, **kwargs
         )
 
+        # pretrained_model.backbone.set_trainable_parameters(
+        #     tune_visual=tune_visual, tune_llm=tune_llm
+        # )
+        # pretrained_model.action_head.set_trainable_parameters(
+        #     tune_projector=tune_projector, tune_diffusion_model=tune_diffusion_model
+        # )
+        # return pretrained_model
+        
+        #######################################################################
         pretrained_model.backbone.set_trainable_parameters(
             tune_visual=tune_visual, tune_llm=tune_llm
         )
         pretrained_model.action_head.set_trainable_parameters(
             tune_projector=tune_projector, tune_diffusion_model=tune_diffusion_model
         )
+
+        # Apply debug hidden-state-saving config (off by default).
+        pretrained_model.backbone.save_hidden_state = save_hidden_state
+        pretrained_model.backbone.save_hidden_state_dir = save_hidden_state_dir
+        pretrained_model.backbone.save_hidden_state_max_steps = save_hidden_state_max_steps
+        pretrained_model.backbone._save_hidden_state_step_count = 0
+        if save_hidden_state:
+            print(
+                f"[GR00T_N1_5] Hidden state saving ENABLED -> dir='{save_hidden_state_dir}', "
+                f"max_steps={save_hidden_state_max_steps}"
+            )
+
         return pretrained_model
+        #####################################################################
 
 
 # register

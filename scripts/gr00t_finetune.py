@@ -131,7 +131,25 @@ class ArgsConfig:
     balance_trajectory_weights: bool = True
     """Used in LeRobotMixtureDataset. If True, sample trajectories within a dataset weighted by their length; otherwise, equal weighting."""
 
+    #####################################################################################
+    save_hidden_state: bool = False
+    """Debug only: if True, dump backbone hidden states to disk for the first
+    `save_hidden_state_max_steps` training steps, then stop. Default: False (off)."""
 
+    save_hidden_state_dir: str = "debug_hidden_states"
+    """Directory to write debug hidden state .npy files to (only used if save_hidden_state=True)."""
+
+    save_hidden_state_max_steps: int = 1
+    """Number of steps to save hidden states for before auto-disabling (only used if save_hidden_state=True)."""
+    
+    prune_model: bool = True
+    """Whether to prune the model architecture (backbone + action head layers) after loading
+    the full pretrained weights. Training always loads the FULL pretrained checkpoint first
+    (to avoid shape/key mismatches), then prunes afterward if this is True."""
+    
+    #####################################################################################
+    
+    
 #####################################################################################
 # main training function
 #####################################################################################
@@ -201,11 +219,24 @@ def main(config: ArgsConfig):
         tune_visual=config.tune_visual,  # backbone's vision tower
         tune_projector=config.tune_projector,  # action head's projector
         tune_diffusion_model=config.tune_diffusion_model,  # action head's DiT
+        ##################################################
+        pruned=False,
+        save_hidden_state=config.save_hidden_state,
+        save_hidden_state_dir=config.save_hidden_state_dir,
+        save_hidden_state_max_steps=config.save_hidden_state_max_steps,
+        ##################################################
     )
+    # print("Number of parameters BEFORE pruning: ", sum(p.numel() for p in model.parameters()))
+    # model.prun_layers()
+    # print("Number of parameters AFTER pruning: ", sum(p.numel() for p in model.parameters()))
+    
     print("Number of parameters BEFORE pruning: ", sum(p.numel() for p in model.parameters()))
-    model.prun_layers()
+    if config.prune_model:
+        model.prun_layers()
     print("Number of parameters AFTER pruning: ", sum(p.numel() for p in model.parameters()))
     print(f"Trainable params: {count_trainable_params(model):,}")
+    
+    
     # Update action_horizon to match data config
     # Need to recreate action head with correct config since it was initialized with old config
     if data_action_horizon != model.action_head.config.action_horizon:

@@ -39,6 +39,11 @@ class EagleBackbone(nn.Module):
         load_bf16: bool = False,
         eagle_path: str | None = None,
         project_to_dim: int = 1536,
+        ##################################################
+        save_hidden_state: bool = False,
+        save_hidden_state_dir: str = "debug_hidden_states",
+        save_hidden_state_max_steps: int = 1,
+        ##################################################
     ):
         """
         Args:
@@ -47,6 +52,13 @@ class EagleBackbone(nn.Module):
         """
         super().__init__()
         assert not reproject_vision, "Reproject vision is not implemented here, set to False"
+
+        ##################################################
+        self.save_hidden_state = save_hidden_state
+        self.save_hidden_state_dir = save_hidden_state_dir
+        self.save_hidden_state_max_steps = save_hidden_state_max_steps
+        self._save_hidden_state_step_count = 0
+        ##################################################
 
         config = AutoConfig.from_pretrained(DEFAULT_EAGLE_PATH, trust_remote_code=True)
         self.eagle_model = AutoModel.from_config(config, trust_remote_code=True)
@@ -107,6 +119,23 @@ class EagleBackbone(nn.Module):
         
         
         # pass
+        
+    def _save_eagle_hidden_states(self, hidden_states):
+        """Dump each layer's hidden state tensor to {save_hidden_state_dir}/layer_{i}.npy"""
+        os.makedirs(self.save_hidden_state_dir, exist_ok=True)
+        print(
+            f"[EagleBackbone] Saving {len(hidden_states)} hidden state layers to "
+            f"'{self.save_hidden_state_dir}' (step {self._save_hidden_state_step_count})"
+        )
+        for layer_idx, hs in enumerate(hidden_states):
+            hs_np = hs.detach().cpu().float().numpy()
+            np.save(
+                os.path.join(
+                    self.save_hidden_state_dir,
+                    f"step{self._save_hidden_state_step_count}_layer_{layer_idx}.npy",
+                ),
+                hs_np,
+            )
 
     def set_trainable_parameters(self, tune_llm: bool, tune_visual: bool):
         self.tune_llm = tune_llm
@@ -184,6 +213,11 @@ class EagleBackbone(nn.Module):
         
         # import pdb 
         # pdb.set_trace()
+        
+        if self.save_hidden_state and self._save_hidden_state_step_count < self.save_hidden_state_max_steps:
+            self._save_eagle_hidden_states(eagle_output.hidden_states)
+            self._save_hidden_state_step_count += 1
+        
          
         eagle_features = self.eagle_linear(eagle_features)
         return eagle_features, eagle_input["attention_mask"]

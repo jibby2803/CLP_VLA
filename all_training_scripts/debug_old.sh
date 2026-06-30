@@ -1,3 +1,4 @@
+
 # path for vinr
 export PATH=/home/binhng/conda_setup/miniconda3/envs/gr15v2/bin:$PATH
 # export HF_HOME=/mnt/data/sftp/data/vla_intern/workspace/hf_home
@@ -16,8 +17,8 @@ python --version
 DATA_PATH="/mnt/data/sftp/data/vla_intern/workspace/binh/2026/prunner/data/debug/20260227_VR_H31_bodyshop_place_part2_eval_trym_stereo_rvt_speedup1"
 # MODEL_DIR="/mnt/data/sftp/data/vla_intern/workspace/binh/2026/prunner/cpkt/GR00T-N1.5-3B"
 MODEL_DIR="/mnt/data/sftp/data/vla_intern/workspace/binh/2026/prunner/Gr00tN1.5_prunner/outputs/vrh3-bodyshops-gripper-both-2026-03-14_11-13-49"
-BATCH_SIZE=64
-MAX_STEPS=1
+BATCH_SIZE=10
+MAX_STEPS=100
 
 EXP_NAME="debug"
 OUTPUT_DIR="/mnt/data/sftp/data/vla_intern/workspace/binh/2026/prunner/Gr00tN1.5_prunner/outputs/${EXP_NAME}"
@@ -33,11 +34,9 @@ CUDA_VISIBLE_DEVICES=0 python scripts/gr00t_finetune.py \
     --video-backend torchvision_av \
     --tune-diffusion-model \
     --tune-projector \
-    --save-hidden-state True \
-    --save-hidden-state-max-steps 1 \
     --batch-size $BATCH_SIZE  \
     --save-steps 100 \
     --max-steps $MAX_STEPS \
     --num-gpus 1 \
     --output-dir ${OUTPUT_DIR} \
-    --report-to wandb
+    --report-to tensorboard

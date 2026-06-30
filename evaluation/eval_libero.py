@@ -89,6 +89,7 @@ class Args:
     seed: int = 7  # Random Seed (for reproducibility)
     exp_name: str = "test"
     model_type: str = "pi0"
+    load_pruned_model: bool = True
 
 
 def eval_libero(args: Args, task_suite_name:str=None) -> None:
@@ -141,8 +142,11 @@ def eval_libero(args: Args, task_suite_name:str=None) -> None:
         elif args.model_type=="gr00tn16":
             mypolicy = Gr00tn16_inference(args.pretrained_model_path, args.infer_chunk)
             logging.info(f"Task {args.task_suite_name} | Successfully {args.model_type} loaded policy")
+        # elif args.model_type=="gr00tn15":
+        #     mypolicy = Gr00tn15_inference(args.pretrained_model_path, args.infer_chunk)
+        #     logging.info(f"Task {args.task_suite_name} | Successfully {args.model_type} loaded policy")
         elif args.model_type=="gr00tn15":
-            mypolicy = Gr00tn15_inference(args.pretrained_model_path, args.infer_chunk)
+            mypolicy = Gr00tn15_inference(args.pretrained_model_path, args.infer_chunk, load_pruned_model=args.load_pruned_model)
             logging.info(f"Task {args.task_suite_name} | Successfully {args.model_type} loaded policy")
         else:
             print(f"{args.model_type} is not supported yet")
