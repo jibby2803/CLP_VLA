@@ -388,11 +388,11 @@ cd SimplerEnv
 If you find this work useful, please cite our paper:
 
 ```bibtex
-@misc{nguyen2026finetuningvisionlanguageactionmodelsrequires,
-      title={Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think}, 
-      author={Gia-Binh Nguyen and Trong-Bao Ho and Thien-Loc Ha and Khoa Vo and Philip Lund Møller and Quang T. Nguyen and Long Dinh and Tuan Dam and Vu Duong and Tung M. Luu and Trung Le and Tran Nguyen Le and Minh Vu and An Thai Le and Ngan Le and Daniel Sonntag and James Zou and Jan Peters and Duy M. H. Nguyen and Ngo Anh Vien},
-      year={2026},
-      url={https://arxiv.org/abs/2606.20246}, 
+@article{nguyen2026finetuning,
+  title={Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think},
+  author={Nguyen, Gia-Binh and Ho, Trong-Bao and Ha, Thien-Loc and Vo, Khoa and M{\o}ller, Philip Lund and Nguyen, Quang T and Dinh, Long and Dam, Tuan and Duong, Vu and Luu, Tung M and others},
+  journal={arXiv preprint arXiv:2606.20246},
+  year={2026}
 }
 ```
 
