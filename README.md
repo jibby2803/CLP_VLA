@@ -1,4 +1,6 @@
-# CLP: Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think
+<p align="center">
+  <h1 align="center">CLP: Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think</h1>
+</p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2606.20246"><img src="https://img.shields.io/badge/Paper-ArXiv-b31b1b.svg" alt="ArXiv"></a>
