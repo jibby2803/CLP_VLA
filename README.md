@@ -1,8 +1,10 @@
 # CLP: Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think
 
-[![ArXiv](https://img.shields.io/badge/Paper-ArXiv-b31b1b.svg)](https://arxiv.org/abs/2606.20246)
-[![Project Page](https://img.shields.io/badge/🌐%20Project%20Page-CLP--VLA-green)](https://clpvla.github.io/)
-[![Hugging Face](https://img.shields.io/badge/🤗%20Model-HuggingFace-blue)](<huggingface_org_or_model_url>)
+<p align="center">
+  <a href="https://arxiv.org/abs/2606.20246"><img src="https://img.shields.io/badge/Paper-ArXiv-b31b1b.svg" alt="ArXiv"></a>
+  <a href="https://clpvla.github.io/"><img src="https://img.shields.io/badge/🌐%20Project%20Page-CLP--VLA-green" alt="Project Page"></a>
+  <a href="<huggingface_org_or_model_url>"><img src="https://img.shields.io/badge/🤗%20Model-HuggingFace-blue" alt="Hugging Face"></a>
+</p>
 
 
 <p align="center">
