@@ -5,16 +5,15 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2606.20246"><img src="https://img.shields.io/badge/Paper-ArXiv-b31b1b.svg" alt="ArXiv"></a>
   <a href="https://clpvla.github.io/"><img src="https://img.shields.io/badge/🌐%20Project%20Page-CLP--VLA-green" alt="Project Page"></a>
-  <a href="<huggingface_org_or_model_url>"><img src="https://img.shields.io/badge/🤗%20Model-HuggingFace-blue" alt="Hugging Face"></a>
+  <a href="https://huggingface.co/binhng"><img src="https://img.shields.io/badge/🤗%20Models-HuggingFace-blue" alt="Hugging Face"></a>
 </p>
-
 
 <p align="center">
 <img src="images/CLP.png" width="800" alt="CLP main figure">
 </p>
 
 <p align="center">
-<em><one or two sentence summary of CLP: what CKA-Guided Layer Pruning does and the headline result, e.g. number of layers removed / speedup / accuracy retained></em>
+  <b>CLP (CKA-Guided Layer Pruning)</b> identifies and removes redundant transformer layers in Vision-Language-Action (VLA) backbones prior to finetuning. By utilizing Centered Kernel Alignment (CKA) to isolate structurally repetitive states, CLP drastically reduces computational footprint and accelerates inference speeds while fully preserving or even improving manipulation success rates across downstream imitation learning tasks.
 </p>
 
 ## 📑 Table of Contents
