@@ -57,9 +57,14 @@ Create an environment and install the base dependencies (this repo builds on the
 conda create -n clp_vla python=3.10
 conda activate clp_vla
 
-pip install --upgrade setuptools
-pip install -e ".[base]"
-pip install --no-build-isolation flash-attn==<flash_attn_version>
+pip install uv
+uv pip install --upgrade setuptools
+uv pip install -e ".[base]"
+
+# install flash attention
+wget "https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.1.post4/flash_attn-2.7.1.post4+cu12torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl"
+
+uv pip install flash_attn-2.7.1.post4+cu12torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 ```
 
 To run LIBERO / RoboCasa simulation for evaluation:
